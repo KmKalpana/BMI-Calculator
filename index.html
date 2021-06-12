@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>BMI Calculator</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('https://image.shutterstock.com/image-vector/man-body-mass-index-vector-600w-760140301.jpg');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            width: 90%;
+            height: 100vh;
+            position: relative;
+        }
+        
+        header {
+            width: 100%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+    </style>
+
+
+</head>
+
+<body>
+    <header>
+        <div class="card w-50 m-auto text-center">
+            <div class="card-header text-center"> BMI Calculator</div>
+            <div class="card-body">
+                <form class="w-50 m-auto" onsubmit="return false">
+                    <div class="form-group" class="text-center">
+                        <label>Weight :</label>
+                        <input type="text" name="" id="weight" placeholder="Weight in Kg" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label>height :</label>
+                        <input type="text" name="" id="height" placeholder="Height in Ft" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label>BMI Value :</label>
+                        <input type="text" name="" id="BMIvalue" placeholder="value" class="form-control">
+                    </div>
+                    <div>
+                        <button type="submit" class="btn btn-success" onclick="bmical()">Check BMI </button>
+                    </div>
+                </form>
+            </div>
+            <div class="card-footer text-center">A healthy BMI ranges between 19 to 25</div>
+        </div>
+    </header>
+    <script>
+        function bmical() {
+            var weight = document.getElementById('weight').value;
+            var height = document.getElementById('height').value;
+            height = height * 12;
+            height = height * 0.025; //height in meter.
+            var bmivalue = weight / (height * height);
+            bmivalue = Math.round(bmivalue);
+            document.getElementById('BMIvalue').value = bmivalue;
+
+        }
+    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>
